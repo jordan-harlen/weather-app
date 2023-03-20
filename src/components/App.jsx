@@ -4,6 +4,7 @@ import TopButtons from './TopButtons'
 import Inputs from './Inputs'
 import TimeAndLocation from './TimeAndLocation'
 import TemperatureAndDetails from './TemperatureAndDetails'
+import Forecast from './Forecast'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Inputs />
       <TimeAndLocation />
       <TemperatureAndDetails />
+      <Forecast />
     </div>
   )
 }
