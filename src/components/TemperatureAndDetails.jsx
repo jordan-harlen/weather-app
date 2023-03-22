@@ -11,6 +11,11 @@ import {
 } from '@iconscout/react-unicons'
 
 function TemperatureAndDetails({ weatherData }) {
+  const sunrise = new Date(weatherData?.sys?.sunrise).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
   return (
     <>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
@@ -50,7 +55,7 @@ function TemperatureAndDetails({ weatherData }) {
       <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
         <UilSun />
         <p className="font-light">
-          Rise:<span className="font-medium ml-1">6:45 AM</span>
+          Rise:<span className="font-medium ml-1">{sunrise}</span>
         </p>
         <p className="font-light">|</p>
 
