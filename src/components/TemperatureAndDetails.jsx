@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
   UilArrowUp,
@@ -15,6 +15,13 @@ function TemperatureAndDetails({ weatherData }) {
     hour: '2-digit',
     minute: '2-digit',
   })
+
+  const sunset = new Date(weatherData?.sys?.sunset).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
+  console.log(sunrise)
 
   return (
     <>
@@ -61,7 +68,7 @@ function TemperatureAndDetails({ weatherData }) {
 
         <UilSunset />
         <p className="font-light">
-          Sunset:<span className="font-medium ml-1">7:35 PM</span>
+          Sunset:<span className="font-medium ml-1">{sunset}</span>
         </p>
         <p className="font-light">|</p>
 
