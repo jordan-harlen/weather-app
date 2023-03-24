@@ -13,11 +13,11 @@ function TopButtons() {
     },
     {
       id: 2,
-      title: 'Melbourne',
+      title: 'Tokyo',
     },
     {
       id: 3,
-      title: 'Tokyo',
+      title: 'Christchurch',
     },
     {
       id: 4,

@@ -43,11 +43,11 @@ function Inputs() {
       >
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search a city..."
           onChange={(e) => {
             handleSearch(e)
           }}
-          className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize"
+          className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase"
         />
         <button>
           <UilSearch

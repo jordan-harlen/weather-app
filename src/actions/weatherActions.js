@@ -1,4 +1,4 @@
-import { getWeather, weatherByName } from '../API/WeatherApi'
+import { getWeather, weatherByName } from '../API/weatherApi'
 
 //Actions vars
 export const SAVE_WEATHER = 'SAVE_WEATHER'
