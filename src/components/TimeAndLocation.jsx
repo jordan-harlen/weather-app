@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-function TimeAndLocation({ weatherData }) {
+function TimeAndLocation() {
+  const weatherData = useSelector((redux) => redux.weather)
   return (
     <>
       <div className="flex items-center justify-center my-6">

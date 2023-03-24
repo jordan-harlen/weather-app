@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import {
   UilArrowUp,
@@ -10,27 +11,33 @@ import {
   UilSunset,
 } from '@iconscout/react-unicons'
 
-function TemperatureAndDetails({ weatherData }) {
-  const sunrise = new Date(weatherData?.sys?.sunrise).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+function TemperatureAndDetails() {
+  const weatherData = useSelector((redux) => redux.weather)
 
-  const sunset = new Date(weatherData?.sys?.sunset).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+  const sunrise = new Date(weatherData?.sys?.sunrise * 1000).toLocaleTimeString(
+    [],
+    {
+      hour: '2-digit',
+      minute: '2-digit',
+    }
+  )
 
-  console.log(sunrise)
+  const sunset = new Date(weatherData?.sys?.sunset * 1000).toLocaleTimeString(
+    [],
+    {
+      hour: '2-digit',
+      minute: '2-digit',
+    }
+  )
 
   return (
     <>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>Clear</p>
+        <p>{weatherData?.weather?.[0]?.main}</p>
       </div>
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img
-          src="http://openweathermap.org/img/wn/01d@2x.png"
+          src={`http://openweathermap.org/img/wn/${weatherData?.weather?.[0]?.icon}.png`}
           alt=""
           className="w-20"
         />
@@ -74,13 +81,19 @@ function TemperatureAndDetails({ weatherData }) {
 
         <UilSun />
         <p className="font-light">
-          High:<span className="font-medium ml-1">45°</span>
+          High:
+          <span className="font-medium ml-1">
+            {weatherData?.main?.temp_max}°
+          </span>
         </p>
         <p className="font-light">|</p>
 
         <UilSun />
         <p className="font-light">
-          Low:<span className="font-medium ml-1">40°</span>
+          Low:
+          <span className="font-medium ml-1">
+            {weatherData?.main?.temp_min}°
+          </span>
         </p>
       </div>
     </>
