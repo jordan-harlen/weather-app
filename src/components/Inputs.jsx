@@ -35,13 +35,25 @@ function Inputs() {
 
   return (
     <div className="flex flex-col md:flex-row justify-center my-6">
-      <form className="flex flex-row w-full md:w-3/4 items-center justify-center space-x-4">
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e)
+        }}
+        className="flex flex-row w-full md:w-3/4 items-center justify-center space-x-4"
+      >
         <input
           type="text"
+          onChange={(e) => {
+            handleSearch(e)
+          }}
           placeholder="Search a city..."
           className="text-xl font-light p-2 w-full md:w-4/5 shadow-xl focus:outline-none capitalize placeholder:lowercase"
         />
-        <button>
+        <button
+          onSubmit={(e) => {
+            handleSubmit(e)
+          }}
+        >
           <UilSearch
             size={25}
             className="text-white cursor-pointer hover:scale-125"
@@ -53,11 +65,19 @@ function Inputs() {
         />
       </form>
       <div className="flex flex-row w-full md:w-1/4 items-center justify-center">
-        <button name="celcius" className="text-xl text-white font-light">
+        <button
+          name="celcius"
+          onClick={CelsiusButton}
+          className="text-xl text-white font-light"
+        >
           °C
         </button>
         <p className="text-xl text-white mx-1">|</p>
-        <button name="fahrenheit" className="text-xl text-white font-light">
+        <button
+          name="fahrenheit"
+          onClick={FahrenheitButton}
+          className="text-xl text-white font-light"
+        >
           °F
         </button>
       </div>
