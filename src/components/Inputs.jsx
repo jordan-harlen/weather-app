@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons'
 import { getByNameThunk } from '../actions/weatherActions'
+import { trueOrFalse } from '../actions/weatherActions'
 
 function Inputs() {
+  const truthy = useSelector((redux) => redux.trueOrFalse)
   const dispatch = useDispatch()
 
   const [searchInput, setSearchInput] = useState('')
@@ -19,6 +21,16 @@ function Inputs() {
     e.preventDefault()
     dispatch(getByNameThunk(searchInput))
     setSearchInput('')
+  }
+
+  function CelsiusButton() {
+    dispatch(trueOrFalse(true))
+    console.log(truthy)
+  }
+
+  function FahrenheitButton() {
+    dispatch(trueOrFalse(false))
+    console.log(truthy)
   }
 
   return (
@@ -49,11 +61,19 @@ function Inputs() {
         />
       </form>
       <div className="flex flex-row w-1/4 items-center justify-center">
-        <button name="celcius" className="text-xl text-white font-light">
+        <button
+          name="celcius"
+          onClick={CelsiusButton}
+          className="text-xl text-white font-light"
+        >
           °C
         </button>
         <p className="text-xl text-white mx-1">|</p>
-        <button name="fahrenheit" className="text-xl text-white font-light">
+        <button
+          name="fahrenheit"
+          onClick={FahrenheitButton}
+          className="text-xl text-white font-light"
+        >
           °F
         </button>
       </div>

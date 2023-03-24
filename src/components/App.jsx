@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { getWeather, weatherByName } from '../API/WeatherApi'
-import { getWeatherThunk } from '../actions/weatherActions'
+import { getWeatherThunk, trueOrFalse } from '../actions/weatherActions'
 
 import TopButtons from './TopButtons'
 import Inputs from './Inputs'

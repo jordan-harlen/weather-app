@@ -6,7 +6,6 @@ export function getWeather() {
       `https://api.openweathermap.org/data/2.5/weather?q=wellington&appid=${process.env.REACT_APP_API_KEY}&units=metric`
     )
     .then((res) => {
-      console.log(res.body)
       return res.body
     })
     .catch((err) => {

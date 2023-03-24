@@ -13,6 +13,7 @@ import {
 
 function TemperatureAndDetails() {
   const weatherData = useSelector((redux) => redux.weather)
+  const truthy = useSelector((redux) => redux.trueOrFalse)
 
   const sunrise = new Date(weatherData?.sys?.sunrise * 1000).toLocaleTimeString(
     [],
@@ -30,6 +31,8 @@ function TemperatureAndDetails() {
     }
   )
 
+  const speedInMiles = weatherData?.wind?.speed * 0.277778
+
   return (
     <>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
@@ -41,13 +44,19 @@ function TemperatureAndDetails() {
           alt=""
           className="w-20"
         />
-        <p className="text-5xl">{Math.ceil(weatherData?.main?.temp) + '°'}</p>
+        <p className="text-5xl">
+          {truthy
+            ? Math.ceil(weatherData?.main?.temp) + '°'
+            : (Math.ceil(weatherData?.main?.temp) * 9) / 5 + 32 + '°'}
+        </p>
         <div className="flex flex-col space-y-2">
           <div className="flex font-light text-sm items-center justify-center">
             <UilTemperature size={18} className="mr-1" />
             Real feel:
             <span className="font-medium ml-1">
-              {Math.ceil(weatherData?.main?.feels_like) + '°'}
+              {truthy
+                ? Math.ceil(weatherData?.main?.feels_like) + '°'
+                : (Math.ceil(weatherData?.main?.feels_like) * 9) / 5 + 32 + '°'}
             </span>
           </div>
           <div className="flex font-light text-sm items-center justify-center">
@@ -61,7 +70,9 @@ function TemperatureAndDetails() {
             <UilWind size={18} className="mr-1" />
             Wind:
             <span className="font-medium ml-1">
-              {weatherData?.wind?.speed + ' km/h'}
+              {truthy
+                ? weatherData?.wind?.speed + ' km/h'
+                : speedInMiles.toFixed(2) + ' m/s'}
             </span>
           </div>
         </div>
@@ -83,7 +94,9 @@ function TemperatureAndDetails() {
         <p className="font-light">
           High:
           <span className="font-medium ml-1">
-            {weatherData?.main?.temp_max}°
+            {truthy
+              ? weatherData?.main?.temp_max + '°'
+              : Math.ceil((weatherData?.main?.temp_max * 9) / 5 + 32) + '°'}
           </span>
         </p>
         <p className="font-light">|</p>
@@ -92,7 +105,9 @@ function TemperatureAndDetails() {
         <p className="font-light">
           Low:
           <span className="font-medium ml-1">
-            {weatherData?.main?.temp_min}°
+            {truthy
+              ? weatherData?.main?.temp_min + '°'
+              : Math.ceil((weatherData?.main?.temp_min * 9) / 5 + 32) + '°'}
           </span>
         </p>
       </div>
