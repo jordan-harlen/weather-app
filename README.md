@@ -9,9 +9,9 @@ A simple weather app that uses the OpenWeather API to display the current weathe
 - [Setup](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Live Demo](#live demo)
+- [Demo](#demo)
 
-## Live Demo
+## Demo
 
 - https://weather-app-86d4d.web.app
 
