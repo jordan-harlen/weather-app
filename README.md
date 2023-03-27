@@ -2,6 +2,9 @@
 
 A simple weather app that uses the OpenWeather API to display the current weather information for a given location.
 
+I made this as a way to practice my skills with the involved technologies and to further explorer whether or not Tailwind CSS was for me or not.
+As well as a way to improve my skills in CSS.
+
 ## Table of Contents
 
 - [Features](#features)
@@ -24,8 +27,10 @@ A simple weather app that uses the OpenWeather API to display the current weathe
 ## Technologies
 
 - HTML
-- CSS
+- CSS/TailwindCSS
 - JavaScript
+- React
+- Redux
 - OpenWeather API
 
 ## Setup
@@ -33,7 +38,7 @@ A simple weather app that uses the OpenWeather API to display the current weathe
 To run this project, you need to have a valid API key from OpenWeather. You can get one by creating an account on their website and generate a new API key.
 
 1. Clone this repository to your local machine.
-2. Create a `.env` file at the root of the project directory and add your OpenWeather API key as `API_KEY=your_api_key`.
+2. Create a `.env` file at the root of the project directory and add your OpenWeather API key as `REACT_APP_API_KEY=your_api_key`.
 3. Open the `index.html` file in your browser.
 
 ## Usage
