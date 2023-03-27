@@ -9,12 +9,12 @@ Currently there is a button for your current location but there has been no logi
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Features](#features)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Demo](#demo)
 
 ## Demo
 
