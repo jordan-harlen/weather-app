@@ -5,6 +5,8 @@ A simple weather app that uses the OpenWeather API to display the current weathe
 I made this as a way to practice my skills with the involved technologies and to further explorer whether or not Tailwind CSS was for me or not.
 As well as a way to improve my skills in CSS.
 
+Currently there is a button for your current location but there has been no logic added to it yet. It is something I would like to implement in the future.
+
 ## Table of Contents
 
 - [Features](#features)
@@ -43,7 +45,7 @@ To run this project, you need to have a valid API key from OpenWeather. You can 
 
 ## Usage
 
-1. Enter the name of a location or its zip code in the search box and press the search button.
+1. Enter the name of a location in the search box and press the search button. You can also use the buttons located at the top.
 2. The weather information for the entered location will be displayed on the screen.
 3. To switch between metric and imperial units, click the toggle button at the bottom of the screen.
 
